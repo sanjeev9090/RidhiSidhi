@@ -6,7 +6,7 @@ import CustomerFeedback from '../components/CustomerFeedback';
 import ContactForm from '../components/ContactForm';
 import TypingText from '../components/TypingText';
 import useScrollAnimation from '../hooks/useScrollAnimation';
-import { bestsellerIds, products } from '../data/products';
+import { bestsellerIds, products } from '../Data/products';
 
 const Home = () => {
   const [bestsellers, setBestsellers] = useState([]);
