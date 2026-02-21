@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard';
 import CustomerFeedback from '../components/CustomerFeedback';
 import ContactForm from '../components/ContactForm';
 import TypingText from '../components/TypingText';
+import ProfessionalSection from '../components/ProfessionalSection';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import { bestsellerIds, products } from '../Data/products';
 
@@ -30,14 +31,25 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section 
-        className="relative bg-cover bg-center h-96 flex items-center justify-center text-white animate-fade-in"
-        style={{ 
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://i.ibb.co/FbtwPjTM/iuliia-pilipeichenko-MX320-XB5o-R8-unsplash.jpg)'
-        }}
-      >
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero Section (video background) */}
+      <section className="relative h-96 flex items-center justify-center text-white overflow-hidden">
+        {/* Background video: place your video in `public/videos/hero.mp4` or change the src to a hosted file */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://i.ibb.co/FbtwPjTM/iuliia-pilipeichenko-MX320-XB5o-R8-unsplash.jpg"
+          aria-hidden="true"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay to ensure foreground text is readable */}
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+
+        <div className="container mx-auto px-4 text-center relative z-10">
           <TypingText 
             text="Walk Bold. Wear Better."
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
@@ -94,6 +106,9 @@ const Home = () => {
           </Link>
         </div>
       </section>
+
+      {/* Professional Highlights Section */}
+      <ProfessionalSection />
 
       {/* Bestsellers Section */}
       <section className="py-12 dark:bg-gray-800">
